@@ -1,0 +1,645 @@
+:root {
+  --win: rgba(30, 17, 32, 0.88);
+  --fg: #ece6ea;
+  --muted: #8f7b8d;
+  --green: #86d98a;
+  --blue: #7fb4e8;
+  --orange: #ff7a45;
+  --peach: #ffb48a;
+  --cream: #fff1e6;
+  --line: rgba(236, 230, 234, 0.12);
+  --mono: "JetBrains Mono", "Ubuntu Mono", ui-monospace, monospace;
+  --ui: "Ubuntu", system-ui, sans-serif;
+  color-scheme: dark;
+  box-sizing: border-box;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-padding-top: 4rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font: 400 1rem/1.7 var(--mono);
+  color: var(--fg);
+  background:
+    radial-gradient(60% 50% at 0% 0%, rgba(233, 84, 32, 0.22), transparent 70%),
+    radial-gradient(70% 60% at 100% 100%, rgba(130, 50, 100, 0.45), transparent 70%),
+    #1a0d19 fixed;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--orange);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Barra superior de actividades (estilo Ubuntu GNOME)
+   ========================================================================== */
+.panel {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 4, 9, 0.85);
+  backdrop-filter: blur(8px);
+  color: #d8d0d6;
+  font: 500 0.85rem/1 var(--ui);
+  padding: calc(0.5rem + env(safe-area-inset-top, 0px)) 1rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.panel nav {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.panel a {
+  color: #d8d0d6;
+}
+
+.panel a:hover {
+  color: var(--orange);
+  text-decoration: none;
+}
+
+.pr {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.pbtn {
+  font: 500 0.8rem var(--ui);
+  color: #d8d0d6;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0;
+  border-radius: 6px;
+  padding: 0.3rem 0.65rem;
+  cursor: pointer;
+}
+
+.pbtn:hover {
+  background: var(--orange);
+  color: #fff;
+}
+
+/* ==========================================================================
+   Ventana principal y barra de título arrastrable
+   ========================================================================== */
+.win {
+  position: relative;
+  z-index: 1;
+  max-width: 62rem;
+  margin: 2.5rem auto 4rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--win);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.07);
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0.6rem 0.9rem;
+  background: rgba(58, 44, 60, 0.9);
+  font: 500 0.82rem var(--ui);
+  color: #d8d0d6;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.bar b {
+  font-weight: 500;
+}
+
+.bar .b {
+  justify-self: end;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bar i {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: #6d6270;
+}
+
+.bar i:last-child {
+  background: var(--orange);
+}
+
+.bar .x {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--orange);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Cuerpo de la terminal y bloques de contenido
+   ========================================================================== */
+.term {
+  padding: clamp(1.1rem, 3vw, 2.2rem);
+  font-size: clamp(0.82rem, 2.2vw, 0.98rem);
+}
+
+.cmd {
+  margin: 2.6rem 0 0.7rem;
+  overflow-wrap: anywhere;
+}
+
+.term > .blk:first-child .cmd {
+  margin-top: 0;
+}
+
+.u {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.d {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.out {
+  margin: 0 0 0.6rem;
+  max-width: 74ch;
+}
+
+.out p {
+  margin: 0 0 0.8rem;
+}
+
+.m {
+  color: var(--muted);
+}
+
+h1 {
+  font: 700 clamp(1.9rem, 7.5vw, 4.4rem)/1.05 var(--mono);
+  letter-spacing: -0.04em;
+  margin: 0.4rem 0 0.5rem;
+  color: var(--cream);
+  overflow-wrap: anywhere;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  background: var(--fg);
+  vertical-align: text-bottom;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.hid {
+  color: transparent;
+}
+
+.anim .blk > *,
+.anim details {
+  transition: opacity 0.3s ease, background 0.2s, border-color 0.2s;
+}
+
+.anim .pend {
+  opacity: 0;
+}
+
+.foto {
+  float: right;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 0 1rem 1.5rem;
+  border: 2px solid var(--orange);
+}
+
+/* ==========================================================================
+   Listado de proyectos (details / summary) y habilidades
+   ========================================================================== */
+details {
+  padding: 0 0.8rem;
+  margin: 0 -0.8rem;
+  border-top: 1px dashed var(--line);
+  border-left: 2px solid transparent;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+details:last-of-type {
+  border-bottom: 1px dashed var(--line);
+}
+
+details:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-left-color: var(--orange);
+}
+
+summary {
+  cursor: pointer;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0 1.2rem;
+  padding: 0.6rem 0;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary .p {
+  color: var(--muted);
+}
+
+summary .n {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 1.05em;
+}
+
+summary .s {
+  grid-column: 2;
+  color: var(--muted);
+  font-size: 0.9em;
+}
+
+summary:hover .n,
+details[open] .n {
+  color: var(--orange);
+}
+
+details .body {
+  padding: 0.2rem 0 1rem 8.7rem;
+  max-width: 80ch;
+}
+
+details .body p {
+  margin: 0 0 0.5rem;
+}
+
+.pn {
+  font: 700 1rem/1.4 var(--mono);
+  color: var(--cream);
+  margin: 0 0 0.5rem;
+}
+
+.st {
+  color: var(--green);
+}
+
+.lnk {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.shot {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  border-radius: 6px;
+  margin: 0.4rem 0 0.8rem;
+  border: 1px solid var(--line);
+}
+
+.cfg .k {
+  color: var(--blue);
+}
+
+.cfg .h {
+  color: var(--peach);
+  font-weight: 700;
+  display: block;
+  margin-top: 0.7rem;
+}
+
+.cfg .h:first-child {
+  margin-top: 0;
+}
+
+.cert-link {
+  border-bottom: 1px dotted var(--muted);
+  cursor: pointer;
+}
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Terminal interactiva secundaria (#t2) y editor GNU nano (#ed)
+   ========================================================================== */
+#t2 {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  width: min(36rem, 92vw);
+  height: min(22rem, 64vh);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(24, 12, 26, 0.94);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.09);
+  font-size: 0.86rem;
+}
+
+#t2[hidden] {
+  display: none;
+}
+
+#t2 .tw {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#t2 .tb {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.8rem 1rem;
+  line-height: 1.6;
+}
+
+#t {
+  display: flex;
+  gap: 0.5ch;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+#i {
+  flex: 1;
+  min-width: 8ch;
+  background: none;
+  border: 0;
+  color: var(--fg);
+  font: inherit;
+  caret-color: var(--green);
+  padding: 0;
+}
+
+#i:focus {
+  outline: none;
+}
+
+.hist .ok,
+.ok {
+  color: var(--peach);
+}
+
+.ov {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 0.15rem 0;
+}
+
+.ec {
+  margin-top: 0.55rem;
+  overflow-wrap: anywhere;
+}
+
+.dc {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.hg {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 0 1rem;
+}
+
+.hg > span {
+  display: block;
+}
+
+/* Editor GNU nano */
+#ed {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: #1a0c1c;
+  z-index: 2;
+}
+
+#ed[hidden] {
+  display: none;
+}
+
+.eh {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  background: #eeeeec;
+  color: #2a1a2c;
+  padding: 0.15rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+#ea {
+  flex: 1;
+  min-height: 0;
+  background: none;
+  border: 0;
+  color: var(--fg);
+  font: inherit;
+  padding: 0.6rem 0.8rem;
+  resize: none;
+  caret-color: var(--green);
+  outline: none;
+}
+
+.ef {
+  padding: 0.3rem 0.7rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+.ef button {
+  background: none;
+  border: 0;
+  color: var(--fg);
+  font: inherit;
+  cursor: pointer;
+  margin-right: 1rem;
+  padding: 0;
+}
+
+.ef kbd {
+  background: #eeeeec;
+  color: #2a1a2c;
+  padding: 0 0.25rem;
+  font: inherit;
+}
+
+#eq {
+  color: var(--peach);
+  min-height: 1.5em;
+}
+
+/* ==========================================================================
+   Ventana flotante de previsualización de imágenes (#pv)
+   ========================================================================== */
+#pv {
+  position: fixed;
+  z-index: 90;
+  top: 0;
+  left: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(30, 17, 32, 0.97);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  transform: translateX(14px);
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+  font-size: 0.8rem;
+}
+
+#pv.on {
+  opacity: 1;
+  transform: none;
+}
+
+#pv .bar {
+  cursor: default;
+}
+
+#pv .pb {
+  padding: 0.7rem 0.9rem 0.9rem;
+}
+
+#pv img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#pv .nf {
+  display: none;
+  aspect-ratio: 16 / 10;
+  margin-top: 0.5rem;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  color: var(--muted);
+}
+
+#pv.err img {
+  display: none;
+}
+
+#pv.err .nf {
+  display: flex;
+}
+
+/* ==========================================================================
+   Diseño adaptable y accesibilidad
+   ========================================================================== */
+@media (max-width: 899px) {
+  #pv {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .panel nav.mn {
+    display: none;
+  }
+  .win {
+    margin: 0;
+    border-radius: 0;
+  }
+  summary {
+    grid-template-columns: 1fr;
+  }
+  summary .s {
+    grid-column: 1;
+  }
+  summary .p {
+    display: none;
+  }
+  details .body {
+    padding-left: 0;
+  }
+  .foto {
+    width: 5.5rem;
+    height: 5.5rem;
+    margin-left: 1rem;
+  }
+  #t2 {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50vh;
+    border-radius: 12px 12px 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}

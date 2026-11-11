@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Manuel Miranda Martínez - Programador Web</title>
+  <meta name="theme-color" content="#1a0d19">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Ubuntu:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+  <!-- Barra superior estilo escritorio Ubuntu -->
+  <header class="panel">
+    <span>Actividades</span>
+    <time id="reloj" datetime=""></time>
+    <div class="pr">
+      <nav class="mn" aria-label="Menu">
+        <a href="#sobre-mi">sobre-mi</a>
+        <a href="#proyectos">proyectos</a>
+        <a href="#habilidades">habilidades</a>
+        <a href="#contacto">contacto</a>
+      </nav>
+      <button id="pt" class="pbtn" type="button">Terminal</button>
+    </div>
+  </header>
+
+  <!-- Ventana principal de la terminal -->
+  <main class="win">
+    <div class="bar">
+      <span></span>
+      <b>mmm@portfolio: ~</b>
+      <span class="b"><i></i><i></i><i></i></span>
+    </div>
+
+    <div class="term">
+
+      <!-- Presentación (whoami) -->
+      <section class="blk">
+        <div class="cmd">
+          <span class="u">mmm@portfolio</span>:<span class="d">~</span>$ <span class="t">whoami</span>
+        </div>
+        <h1 data-slow>Manuel Miranda Martínez</h1>
+        <p class="out m">Técnico de sistemas · Desarrollador Web · Ensamblaje y Mantenimiento de Equipos · Cádiz, España</p>
+        <p class="out">
+          <a href="https://mmirandamartinez.com/">Ver Curriculum</a>
+          <a href="https://github.com/mmirandamartinez" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/manuel-miranda-martinez-8581a6355/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="#" data-open>terminal</a>
+        </p>
+      </section>
+
+      <!-- Sobre mí -->
+      <section class="blk" id="sobre-mi">
+        <div class="cmd">
+          <h2 class="sr">Sobre mí</h2>
+          <span class="u">mmm@portfolio</span>:<span class="d">~</span>$ <span class="t">cat sobre-mi.txt</span>
+        </div>
+        <div class="out">
+          <img
+            class="foto"
+            src="/assets/foto.webp"
+            alt="Manuel Miranda Martínez, Programador Web"
+            width="128"
+            height="128"
+            loading="lazy"
+            decoding="async"
+            onerror="this.style.display='none'"
+          >
+          <p>
+            <strong>Técnico de sistemas / Desarrollador Web / Ensamblaje y Mantenimiento de Equipos.</strong>
+            Hola, soy Manuel Miranda Martínez. Estudiante del Grado Superior en
+            <strong>Desarrollo de Aplicaciones Web (DAW)</strong> en el IES Fernando Aguilar Quignon (Cádiz, España).
+          </p>
+          <p>
+            Soy hábil en diversas áreas, como la comunicación efectiva, la resolución de problemas y la creatividad,
+            lo que me permite abordar tareas de manera innovadora y colaborar eficazmente con otros. También soy una
+            persona proactiva y con habilidades de liderazgo.
+          </p>
+          <p>
+            Estoy en constante aprendizaje, adquiriendo nuevas habilidades para adaptarme a las tendencias tecnológicas actuales.
+          </p>
+        </div>
+      </section>
+
+      <!-- Proyectos -->
+      <section class="blk" id="proyectos">
+        <div class="cmd">
+          <h2 class="sr">Proyectos</h2>
+          <span class="u">mmm@portfolio</span>:<span class="d">~</span>$ <span class="t">ls -l proyectos/</span>
+        </div>
+        <p id="pjh" class="out m">7 proyectos. Pasa el ratón por encima de uno y se abre su captura en otra terminal.</p>
+
+        <div data-s>
+          <details open data-img="/assets/nails.webp">
+            <summary>
+              <span class="p">drwxr-xr-x</span>
+              <span class="n">NailsByCriss/</span>
+              <span class="s">Portafolio digital, tarifas y galería conectada a Instagram</span>
+            </summary>
+            <div class="body">
+              <h3 class="pn">NailsByCriss</h3>
+              <p>
+                Desarrollo de la página web oficial para <strong>NailsByCriss</strong>. Actúa como portafolio digital y
+                catálogo de servicios con listado de tarifas. Integra un sistema automatizado que extrae y filtra
+                publicaciones específicas de Instagram para alimentar la galería de trabajos en tiempo real, optimizando
+                la gestión de contenido para el cliente.
+              </p>
+              <div class="lnk">
+                <a href="https://nailssbycrisss.com" target="_blank" rel="noopener" title="NailsByCriss">Ver Proyecto</a>
+              </div>
+            </div>
+          </details>
+
+          <details open data-img="/assets/robotics.webp">
+            <summary>
+              <span class="p">drwxr-xr-x</span>
+              <span class="n">Robotica-Aplicada-UCA/</span>
+              <span class="s">Página oficial del grupo de investigación TEP940 de la UCA</span>
+            </summary>
+            <div class="body">
+              <h3 class="pn">Robótica Aplicada UCA</h3>
+              <p>
+                Página oficial del grupo de investigación en <strong>robótica aplicada</strong> de la Universidad de Cádiz (TEP940).
+                Desarrollada en <em>Laravel</em>, <em>PHP</em> y <em>React</em>, incluye panel de administración, gestión de
+                publicaciones y funcionalidades para importar información desde Excel, facilitando la actualización de contenido.
+              </p>
+              <p class="st">Laravel · PHP · React</p>
+              <div class="lnk">
+                <a href="https://robotics.uca.es/" target="_blank" rel="noopener" title="Robótica Aplicada UCA">Ver Proyecto</a>
+              </div>
+            </div>
+          </details>
+
+          <details open data-img="/assets/inventario.webp">
+            <summary>
+              <span class="p">drwxr-xr-x</span>
+              <span class="n">Inventario-Robotics-UCA/</span>
+              <span class="s">Plataforma de gestión de inventario para el laboratorio Robotics UCA</span>
+            </summary>
+            <div class="body">
+              <h3 class="pn">Inventario Robotics UCA</h3>
+              <p>
+                Plataforma web de <strong>gestión de inventario</strong> para el laboratorio de <em>Robotics UCA</em>.
+                Permite importar datos desde Excel, realizar edición manual, aplicar filtros y búsquedas avanzadas.
+                Incluye gestión de usuarios con permisos, roles y un chatbot de asistencia. Desarrollado con <em>Laravel</em> y <em>PHP 8</em>.
+              </p>
+              <p class="st">Laravel · PHP 8</p>
+              <div class="lnk">
+                <a href="http://robotics.uca.es/inventario" target="_blank" rel="noopener" title="Inventario Robotics UCA">Ver Proyecto</a>
+              </div>
+            </div>
+          </details>
+
+          <details open data-img="/assets/icon.webp">
+            <summary>
+              <span class="p">drwxr-xr-x</span>
+              <span class="n">M-WIPE/</span>
+              <span class="s">Extensión que elimina banners de cookies y muros de pago</span>
+            </summary>
+            <div class="body">
+              <h3 class="pn">M-WIPE</h3>
+              <p>
+                <strong>Extensión para navegadores</strong> que elimina automáticamente banners de cookies, avisos de privacidad
+                y muros de pago. Limpia la navegación sin tener que aceptar nada y desbloquea el scroll cuando la página intenta
+                forzar el consentimiento. Desarrollado con <strong>Vanilla JavaScript</strong>, <strong>MutationObserver</strong>
+                y <strong>Chrome Extensions API (MV3)</strong>.
+              </p>
+              <p class="st">Vanilla JavaScript · MutationObserver · Chrome Extensions API (MV3)</p>
+              <div class="lnk">
+                <a href="https://github.com/mmirandamartinez/m-wipe" target="_blank" rel="noopener" title="M-WIPE">Ver en GitHub</a>
+              </div>
+            </div>
+          </details>
+
+          <details open data-img="/assets/m-metrix.webp">
+            <summary>
+              <span class="p">drwxr-xr-x</span>
+              <span class="n">M-METRIX/</span>
+              <span class="s">Extensión que audita una web en tiempo real y genera informe SEO</span>
+            </summary>
+            <div class="body">
+              <h3 class="pn">M-METRIX</h3>
+              <p>
+                <strong>Extensión para navegadores</strong> que audita una web en tiempo real y genera un informe SEO claro.
+                Mide rendimiento, encabezados, imágenes, datos estructurados y enlaces, y ofrece una puntuación sobre 100.
+                Desarrollado con <strong>Vanilla JavaScript</strong> y <strong>Chrome Extensions API (MV3)</strong>.
+              </p>
+              <p class="st">Vanilla JavaScript · Chrome Extensions API (MV3)</p>
+              <div class="lnk">
+                <a href="https://github.com/mmirandamartinez/m-metrix" target="_blank" rel="noopener" title="M-METRIX">Ver en GitHub</a>
+              </div>
+            </div>
+          </details>
+
+          <details open data-img="/assets/ubuntu.webp">
+            <summary>
+              <span class="p">drwxr-xr-x</span>
+              <span class="n">Ubuntu-Web/</span>
+              <span class="s">Sistema operativo Ubuntu Linux directamente en el navegador</span>
+            </summary>
+            <div class="body">
+              <h3 class="pn">Ubuntu Web</h3>
+              <p>
+                Proyecto experimental que replica la experiencia del sistema operativo <strong>Ubuntu Linux</strong>
+                directamente en el navegador. Permite realizar la mayoría de funciones que se encuentran en el escritorio real,
+                todo desde una interfaz web interactiva.
+              </p>
+              <div class="lnk">
+                <a href="https://mmirandamartinez.com/" title="Ubuntu Web">Ver Proyecto</a>
+                <a href="https://github.com/mmirandamartinez/ubuntu-mmm" target="_blank" rel="noopener" title="Ubuntu Web">Ver en GitHub</a>
+              </div>
+            </div>
+          </details>
+
+          <details open data-img="/assets/tienda.webp">
+            <summary>
+              <span class="p">drwxr-xr-x</span>
+              <span class="n">Tienda-de-Ropa/</span>
+              <span class="s">Plataforma e-commerce de moda con arquitectura desacoplada</span>
+            </summary>
+            <div class="body">
+              <h3 class="pn">Tienda de Ropa</h3>
+              <p>
+                Desarrollo de una plataforma de <strong>e-commerce</strong> especializada en moda, con arquitectura desacoplada.
+                El <strong>backend</strong> está implementado en <em>Laravel</em>, gestionando la lógica de negocio y la API.
+                El <strong>frontend</strong> se construyó con <em>React</em> y <em>Tailwind CSS</em>, ofreciendo una experiencia
+                rápida, moderna y totalmente responsive.
+              </p>
+              <p class="st">Laravel · React · Tailwind CSS</p>
+              <div class="lnk">
+                <a href="https://clothes.mmirandamartinez.com/" target="_blank" rel="noopener" title="Tienda de Ropa">Ver Proyecto</a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Habilidades -->
+      <section class="blk" id="habilidades">
+        <div class="cmd">
+          <h2 class="sr">Habilidades</h2>
+          <span class="u">mmm@portfolio</span>:<span class="d">~</span>$ <span class="t">cat habilidades.conf</span>
+        </div>
+        <div class="out cfg">
+          <span class="h">[web]</span>
+          <span><span class="k">lenguajes</span> = HTML5, CSS3, JavaScript, PHP, Python</span><br>
+          <span><span class="k">frameworks</span> = Laravel, React, Tailwind CSS, WordPress</span>
+
+          <span class="h">[sistemas]</span>
+          <span><span class="k">os</span> = Windows, GNU/Linux</span><br>
+          <span><span class="k">hardware</span> = Ensamblaje y mantenimiento de equipos</span>
+
+          <span class="h">[certificados]</span>
+          <span>
+            <span class="k">diplomas</span> =
+            <a href="https://mmirandamartinez.com/" target="_blank" rel="noopener" class="cert-link">Python</a>,
+            <a href="https://mmirandamartinez.com/" target="_blank" rel="noopener" class="cert-link">Excel</a>,
+            <a href="https://mmirandamartinez.com/" target="_blank" rel="noopener" class="cert-link">WordPress</a>,
+            <a href="https://mmirandamartinez.com/" target="_blank" rel="noopener" class="cert-link">Copilot</a>,
+            <a href="https://mmirandamartinez.com/" target="_blank" rel="noopener" class="cert-link">IA Generativa</a>,
+            <a href="https://mmirandamartinez.com/" target="_blank" rel="noopener" class="cert-link">Comunicación Efectiva</a>
+          </span>
+        </div>
+      </section>
+
+      <!-- Contacto -->
+      <section class="blk" id="contacto">
+        <div class="cmd">
+          <h2 class="sr">Contacto</h2>
+          <span class="u">mmm@portfolio</span>:<span class="d">~</span>$ <span class="t">cat contacto.txt</span>
+        </div>
+        <div class="out">
+          <p class="m">Puedes contactarme a través de cualquiera de los siguientes medios:</p>
+          <p><span class="m">email    </span> <a href="mailto:mmirandamartinez.it@gmail.com">mmirandamartinez.it@gmail.com</a></p>
+          <p><span class="m">cv       </span> <a href="https://mmirandamartinez.com/" target="_blank" rel="noopener">Ver CV</a> / <a href="https://mmirandamartinez.com/" target="_blank" rel="noopener">Descargar CV</a></p>
+          <p><span class="m">github   </span> <a href="https://github.com/mmirandamartinez" target="_blank" rel="noopener">github.com/mmirandamartinez</a></p>
+          <p><span class="m">linkedin </span> <a href="https://www.linkedin.com/in/manuel-miranda-martinez-8581a6355/" target="_blank" rel="noopener">Manuel Miranda Martínez</a></p>
+        </div>
+      </section>
+
+      <!-- Lanzador de terminal secundaria -->
+      <section class="blk">
+        <div class="cmd">
+          <span class="u">mmm@portfolio</span>:<span class="d">~</span>$ <span class="t">./terminal.sh</span>
+        </div>
+        <p class="out">
+          ¿Quieres trastear? Abre otra terminal y escribe <span class="ok">ayuda</span>.
+          <a href="#" data-open>abrir terminal</a>
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Terminal interactiva flotante (#t2) + Editor GNU nano (#ed) -->
+  <section id="t2" hidden aria-label="Terminal">
+    <div class="bar">
+      <span></span>
+      <b>mmm@portfolio: ~</b>
+      <span class="b">
+        <i></i>
+        <i></i>
+        <button class="x" type="button" aria-label="Cerrar"></button>
+      </span>
+    </div>
+    <div class="tw">
+      <div class="tb">
+        <div id="h" aria-live="polite">
+          <div class="ov m">Escribe <span class="ok">ayuda</span> para ver los comandos.</div>
+        </div>
+        <div id="t">
+          <label for="i" id="pl">
+            <span class="u">mmm@portfolio</span>:<span class="d">~</span>$
+          </label>
+          <input id="i" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">
+        </div>
+      </div>
+
+      <!-- Editor integrado GNU nano -->
+      <div id="ed" hidden>
+        <div class="eh">
+          <span>GNU nano 7.2</span>
+          <span id="en"></span>
+          <span>mmm</span>
+        </div>
+        <textarea id="ea" spellcheck="false" aria-label="Editor"></textarea>
+        <div class="ef">
+          <div id="eq"></div>
+          <button type="button" data-a="o"><kbd>^O</kbd> Guardar</button>
+          <button type="button" data-a="x"><kbd>^X</kbd> Salir</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ventana flotante de previsualización de capturas (#pv) -->
+  <aside id="pv" aria-hidden="true">
+    <div class="bar">
+      <span></span>
+      <b class="ttl"></b>
+      <span class="b"><i></i><i></i><i></i></span>
+    </div>
+    <div class="pb">
+      <div>
+        <span class="u">mmm@portfolio</span>:<span class="d">~</span>$ <span class="pc"></span>
+      </div>
+      <img alt="">
+      <div class="nf"></div>
+    </div>
+  </aside>
+
+  <script src="scripts/app.js" defer></script>
+</body>
+</html>
